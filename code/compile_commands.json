@@ -1,0 +1,32 @@
+[
+  {
+    "file": "src/main.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Wextra",
+      "-Iinc/",
+      "-c",
+      "src/main.c",
+      "-o",
+      "obj/main.o"
+    ],
+    "directory": "/home/nkyira/Documents/books/CS_APP/code",
+    "output": "obj/main.o"
+  },
+  {
+    "file": "src/figure2_1.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Wextra",
+      "-Iinc/",
+      "-c",
+      "src/figure2_1.c",
+      "-o",
+      "obj/figure2_1.o"
+    ],
+    "directory": "/home/nkyira/Documents/books/CS_APP/code",
+    "output": "obj/figure2_1.o"
+  }
+]
