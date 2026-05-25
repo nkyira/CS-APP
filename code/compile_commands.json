@@ -28,5 +28,20 @@
     ],
     "directory": "/home/nkyira/Documents/books/CS_APP/code",
     "output": "obj/figure2_1.o"
+  },
+  {
+    "file": "src/2_1_7.c",
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Wextra",
+      "-Iinc/",
+      "-c",
+      "src/2_1_7.c",
+      "-o",
+      "obj/2_1_7.o"
+    ],
+    "directory": "/home/nkyira/Documents/books/CS_APP/code",
+    "output": "obj/2_1_7.o"
   }
 ]

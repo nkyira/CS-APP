@@ -9,7 +9,7 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 INC_DIR = inc/
 
-SRC =	main.c figure2_1.c
+SRC =	main.c figure2_1.c 2_1_7.c
 OBJ = $(patsubst %.c, $(OBJ_DIR)%.o, $(SRC))
 
 all: $(NAME)
