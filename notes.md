@@ -55,20 +55,35 @@ S \ A = [0, 2, 5, 8, 9]
 ```
 
 ### Bit shifts :
-```text
-logical right shift pads the left bits with 0s while
-arithmetic right shift pads the left bits with 1s :
-Operation           Value1      Value2
-Argument x          [01100011]  [10010101]
-x << 4              [00110000]  [01010000]
-x >> 4 (1ogical)    [00000110]  [00001001]
-x >> 4 (arithmetic) [00000110]  [11111001]
+    logical right shift pads the left bits with 0s while
+    arithmetic right shift pads the left bits with 1s :
+    Operation           Value1      Value2
+    Argument x          [01100011]  [10010101]
+    x << 4              [00110000]  [01010000]
+    x >> 4 (1ogical)    [00000110]  [00001001]
+    x >> 4 (arithmetic) [00000110]  [11111001]
 
-In C in general unsigned values use logical right shifting
-while signed values use arithmetic right shiftinng
+    In C in general unsigned values use logical right shifting
+    while signed values use arithmetic right shiftinng
 
-Shifting by values bigger than the amount of bits in a data type is undefined.
-However most machines will compute the value k mod w where k is the shift and w is the bit size
-```
+    Shifting by values bigger than the amount of bits in a data type is undefined.
+    However most machines will compute the value k mod w where k is the shift and w is the bit size
 
+### Operator precedence :
+    in C :
+    1  ++, --, +(Unary) , -(Unary) , !, ~, (cast)
+    2  *(dereference), &(address of), sizeof
+    3  *, /, %, (arithmetic operators)
+    4  +, -, (arithmetic operators)
+    5  <<, >>, (bitwise shift)
+    6  <, <=, >, >=, (relational operators)
+    7  ==, !=, (relational operators)
+    8  & (bitwise AND)
+    9  ^ (bitwise XOR)
+    10 | (bitwise OR)
+    11 && (logical AND)
+    12 || (logical OR)
+    13 ?: (ternary condition), =, +=, +-
+    14 *=, /=, %=, <<=, >>=, &=, ^=, |=
+    15 ',' (comma)
 
