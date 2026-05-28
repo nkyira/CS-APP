@@ -78,3 +78,13 @@
     14 *=, /=, %=, <<=, >>=, &=, ^=, |=
     15 ',' (comma)
 
+### Integral data types :
+#### Binary to unsigned encodings :
+    for bit vector x = [x_(w-1), x_(w-2), ..., x_0]
+    B2U_w(x) = Σ(i=0->w-1) x_i*2^i
+    Ex: x = [10101100] so B2U_w(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 + 1*128 = 172
+#### Binary to two's completment encodings :
+    for bit vector x = [x_(w-1), x_(w-2), ..., x_0]
+    B2U(x) = -x_(w-1)*2^(w-1) Σ(i=0->w-2) x_i*2^i
+    Ex1: x = [00101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 0*128 = 44
+    Ex2: x = [10101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 1*128 = -84
