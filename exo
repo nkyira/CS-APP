@@ -35,3 +35,15 @@
         int result = bis(x, y);
     for bool_xor :
         int result = bis(bic(x, y), bic(y, x));
+2.18
+
+    4004d0: 48 81 ec e0 02 00 00    sub $0x2e0,%rsp                 A. 0x2e0 is [0010 1110 0000] is 32 + 64 + 128 + 512 = 736
+    4004d7: 48 8b 44 24 a8          mov -0x58(%rsp),%rax            B. -0x58 is [0101 1000] is 8 + 16 + 64 = -88
+    4004dc: 48 03 47 28             add 0x28(%rdi),%rax             C. 0x28 is [0010 1000] is 8 + 32 = 40
+    4004e0: 48 89 44 24 d0          mov %rax,-0x30(%rsp)            D. -0x30 is [0011 0000] is 16 + 32 = 48
+    4004e5: 48 8b 44 24 78          mov 0x78(%rsp),%rax             E. 0x78 is [0111 1000] is 8 + 16 + 32 + 64 = 120
+    4004ea: 48 8b 87 88 00 00 00    mov %rax,0x88(%rdi)             F. 0x88 is [1000 1000] is 128 + 8 = 136
+    4004f1: 48 8b 84 24 f8 01 00 00 mov 0x1f8(%rsp),%rax            G. 0x1f8 is [0001 1111 1000] is 8 + 16 + 32 + 64 + 128 + 256 = 504
+    4004f9: 48 03 44 24 08          add 0x8(%rsp),%rax              
+    4004fe: 48 89 84 24 c0 00 00 00 mov %rax,0xc0(%rsp)             H. 0xc0 is [1100 0000] is 16 + 64 + 128 = 192
+    400506: 48 8b 44 d4 b8          mov -0x48(%rsp,%rdx,8),%rax     I. -0x48 is [0100 1000] is 8 + 64 = -72

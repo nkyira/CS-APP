@@ -88,3 +88,11 @@
     B2U(x) = -x_(w-1)*2^(w-1) Σ(i=0->w-2) x_i*2^i
     Ex1: x = [00101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 0*128 = 44
     Ex2: x = [10101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 1*128 = -84
+####  Conversion between signed and unsigned :
+    when converting between types of the same size the bit representation stays the same so :
+```C
+    short int  v = -12345;
+    unsigned short uv = (unsigned short)v;
+    printf("v = %d, uv = %u\n", v, uv);
+```
+    will print : v = -12345, uv = -53191
