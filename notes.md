@@ -44,11 +44,15 @@ a | b = [0 1 0 1 1 0 1 1 0 0]
       | [1 0 0 1 0 0 0 1 0 1]
         [1 1 0 1 1 0 1 1 0 1]
 ```
+```
 A ∪ B = [0, 1, 3, 4, 6, 7, 9]
-
+```
+```
 ~a = [1 0 1 0 0 1 0 0 1 1]
-
+```
+```
 S \ A = [0, 2, 5, 8, 9]
+```
 
 ### Bit shifts :
     logical right shift pads the left bits with 0s while
