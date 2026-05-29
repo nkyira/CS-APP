@@ -70,22 +70,22 @@ S \ A = [0, 2, 5, 8, 9]
     However most machines will compute the value k mod w where k is the shift and w is the bit size
 
 ### Operator precedence :
-    in C :
-    1  ++, --, +(Unary) , -(Unary) , !, ~, (cast)
-    2  *(dereference), &(address of), sizeof
-    3  *, /, %, (arithmetic operators)
-    4  +, -, (arithmetic operators)
-    5  <<, >>, (bitwise shift)
-    6  <, <=, >, >=, (relational operators)
-    7  ==, !=, (relational operators)
-    8  & (bitwise AND)
-    9  ^ (bitwise XOR)
-    10 | (bitwise OR)
-    11 && (logical AND)
-    12 || (logical OR)
-    13 ?: (ternary condition), =, +=, +-
-    14 *=, /=, %=, <<=, >>=, &=, ^=, |=
-    15 ',' (comma)
+in C :
+1.  `++`, `--`, `+`(Unary) , `-`(Unary) , `!`, `~`, `(cast)`
+2.  `*`(dereference), `&`(address of), `sizeof`
+3.  `*`, `/`, `%`, (arithmetic operators)
+4.  `+`, `-`, (arithmetic operators)
+5.  `<<`, `>>`, (bitwise shift)
+6.  `<`, `<=`, `>`, `>=`, (relational operators)
+7.  `==`, `!=`, (relational operators)
+8.  `&` (bitwise AND)
+9.  `^` (bitwise XOR)
+10. `|` (bitwise OR)
+11. `&&` (logical AND)
+12. `||` (logical OR)
+13. `?:` (ternary condition), `=`, `+=`, `+-`
+14. `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `^=`, `|=`
+15. `,`(comma)
 
 ### Integral data types :
 #### Binary to unsigned encodings :
