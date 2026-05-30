@@ -112,13 +112,14 @@ will print : v = -12345, uv = 53191
 #### Non-intuitive results of implicit conversions :
 When an operatfon is performed where one operand is signed and the other is unsigned, C
 implicitly casts the signed argument to unsigned and performs the operations :
-    Expression                              Type       Evaluation
-0 == 0U                                Unsigned   1
--1 < 0                                Signed     1
--1 < 0U                               Unsigned   0 *
-2147483647 > -2147483647 - 1          Signed     1
-2147483647U > -2147483647 - 1         Unsigned   0 *
-2147483647 > (int)2147483648U         Signed     1 *
--1 > -2                               Signed     1
-(unsigned)-1 > -2                     Unsigned   1
--------------------------------------------------------------
+```
+Expression                      Type       Evaluation
+0 == 0U                         Unsigned        1
+-1 < 0                          Signed          1
+-1 < 0U                         Unsigned        0 *
+2147483647 > -2147483647 - 1    Signed          1
+2147483647U > -2147483647 - 1   Unsigned        0 *
+2147483647 > (int)2147483648U   Signed          1 *
+-1 > -2                         Signed          1
+(unsigned)-1 > -2               Unsigned        1
+```
