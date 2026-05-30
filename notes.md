@@ -55,19 +55,20 @@ S \ A = [0, 2, 5, 8, 9]
 ```
 
 ### Bit shifts :
-    logical right shift pads the left bits with 0s while
-    arithmetic right shift pads the left bits with 1s :
+logical right shift pads the left bits with 0s while
+arithmetic right shift pads the left bits with 1s :
+```
     Operation           Value1      Value2
     Argument x          [01100011]  [10010101]
     x << 4              [00110000]  [01010000]
     x >> 4 (1ogical)    [00000110]  [00001001]
     x >> 4 (arithmetic) [00000110]  [11111001]
+```
+In C in general unsigned values use logical right shifting
+while signed values use arithmetic right shiftinng
 
-    In C in general unsigned values use logical right shifting
-    while signed values use arithmetic right shiftinng
-
-    Shifting by values bigger than the amount of bits in a data type is undefined.
-    However most machines will compute the value k mod w where k is the shift and w is the bit size
+Shifting by values bigger than the amount of bits in a data type is undefined.
+However most machines will compute the value k mod w where k is the shift and w is the bit size
 
 ### Operator precedence :
 in C :
@@ -89,23 +90,35 @@ in C :
 
 ### Integral data types :
 #### Binary to unsigned encodings :
-    for bit vector x = [x_(w-1), x_(w-2), ..., x_0]
-    B2U_w(x) = Σ(i=0->w-1) x_i*2^i
-    Ex: x = [10101100] so B2U_w(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 + 1*128 = 172
+
+for bit vector `x = [x_(w-1), x_(w-2), ..., x_0]`  
+`B2U_w(x) = Σ(i=0->w-1) x_i*2^i`
+Ex: `x = [10101100]` so `B2U_w(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 + 1*128 = 172`
 #### Binary to two's completment encodings :
-    for bit vector x = [x_(w-1), x_(w-2), ..., x_0]
-    B2U(x) = -x_(w-1)*2^(w-1) Σ(i=0->w-2) x_i*2^i
-    Ex1: x = [00101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 0*128 = 44
-    Ex2: x = [10101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 1*128 = -84
+
+for bit vector x = [x_(w-1), x_(w-2), ..., x_0]
+B2U(x) = -x_(w-1)*2^(w-1) Σ(i=0->w-2) x_i*2^i
+Ex1: x = [00101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 0*128 = 44
+Ex2: x = [10101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 1*128 = -84
 #### Conversion between signed and unsigned :
-    when converting between types of the same size the bit representation stays the same so :
+
+when converting between types of the same size the bit representation stays the same so :
 ```C
     short int  v = -12345;
     unsigned short uv = (unsigned short)v;
     printf("v = %d, uv = %u\n", v, uv);
 ```
-    will print : v = -12345, uv = 53191
+will print : v = -12345, uv = 53191
 #### Non-intuitive results of implicit conversions :
-    When an operatfon is performed where one operand is signed and the other is unsigned, C
-    implicitly casts the signed argument to unsigned and performs the operations :
-    
+When an operatfon is performed where one operand is signed and the other is unsigned, C
+implicitly casts the signed argument to unsigned and performs the operations :
+    Expression                              Type       Evaluation
+0 == 0U                                Unsigned   1
+-1 < 0                                Signed     1
+-1 < 0U                               Unsigned   0 *
+2147483647 > -2147483647 - 1          Signed     1
+2147483647U > -2147483647 - 1         Unsigned   0 *
+2147483647 > (int)2147483648U         Signed     1 *
+-1 > -2                               Signed     1
+(unsigned)-1 > -2                     Unsigned   1
+-------------------------------------------------------------
