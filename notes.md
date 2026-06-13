@@ -142,10 +142,10 @@ gcc -Og -o p p1.c p2.c
 the `-Og` flag instructs gcc to generate machine code that is similar in structure to the code
 while `-O1` or `-O2` can optimize so heavily that the machine code and original code become quit different
 gcc executes a series of actions to turn c code into machine code:
-1. the *preprocessor* expands code in `#include` clauses and expands macros
-2. the *compiler* generates assembly versions `p1.s` and `p2.s` of the the source file
-3. the *assembler* converts the assembly code into binary *object-code* files `p1.o` and `p2.o`
-4. the *linker*  merges the two object files along with code impleplementing library functions
+1. the **preprocessor** expands code in `#include` clauses and expands macros
+2. the **compiler** generates assembly versions `p1.s` and `p2.s` of the the source file
+3. the **assembler** converts the assembly code into binary **object-code** files `p1.o` and `p2.o`
+4. the **linker**  merges the two object files along with code impleplementing library functions
 and generates a final executable `p` which is the machine code that will be executed by the cpu
 
 
