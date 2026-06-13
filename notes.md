@@ -88,7 +88,7 @@ in C :
 14. `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `^=`, `|=`
 15. `,`(comma)
 
-### Integral data types :
+### 2.2 Integral data types :
 #### Binary to unsigned encodings :
 
 for bit vector `x = [x_(w-1), x_(w-2), ..., x_0]`  
@@ -104,13 +104,13 @@ Ex2: x = [10101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 1*1
 
 when converting between types of the same size the bit representation stays the same so :
 ```C
-    short int  v = -12345;
+    short int  v = -12345;FLOAT
     unsigned short uv = (unsigned short)v;
     printf("v = %d, uv = %u\n", v, uv);
 ```
 will print : v = -12345, uv = 53191
 #### Non-intuitive results of implicit conversions :
-When an operatfon is performed where one operand is signed and the other is unsigned, C
+When an operation is performed where one operand is signed and the other is unsigned, C
 implicitly casts the signed argument to unsigned and performs the operations :
 ```
 Expression                      Type       Evaluation
@@ -123,3 +123,33 @@ Expression                      Type       Evaluation
 -1 > -2                         Signed          1
 (unsigned)-1 > -2               Unsigned        1
 ```
+
+### 2.3 Integer arithmetic
+
+
+## Chapter 3 Machine level representation of programs
+
+### 3.1 A Historical perspective
+x86 refers to the old naming convention of intel processors (8086, 80286, i386, i486)
+so x86-64 are intel compatible 64 bit processors.
+From 1975 till 2015 there has been an exponential growth in x86 microprocesser complexity but there has been
+a slowdown in cpu performance progress since the mid 2010s
+
+### 3.2 Program encodings
+```shell
+gcc -Og -o p p1.c p2.c
+```
+the `-Og` flag instructs gcc to generate machine code that is similar in structure to the code
+while `-O1` or `-O2` can optimize so heavily that the machine code and original code become quit different
+gcc executes a series of actions to turn c code into machine code:
+1. the *preprocessor* expands code in `#include` clauses and expands macros
+2. the *compiler* generates assembly versions `p1.s` and `p2.s` of the the source file
+3. the *assembler* converts the assembly code into binary *object-code* files `p1.o` and `p2.o`
+4. the *linker*  merges the two object files along with code impleplementing library functions
+and generates a final executable `p` which is the machine code that will be executed by the cpu
+
+
+
+### 3.4
+An x86-64 cpu contains 16 general purpose registers storing 64 bit values 
+
