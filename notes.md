@@ -55,7 +55,7 @@ S \ A = [0, 2, 5, 8, 9]
 ```
 
 ### Bit shifts :
-logical right shift pads the left bits with 0s while
+Logical right shift pads the left bits with 0s while
 arithmetic right shift pads the left bits with 1s :
 ```
     Operation           Value1      Value2
@@ -71,7 +71,7 @@ Shifting by values bigger than the amount of bits in a data type is undefined.
 However most machines will compute the value k mod w where k is the shift and w is the bit size
 
 ### Operator precedence :
-in C :
+In C :
 1.  `++`, `--`, `+`(Unary) , `-`(Unary) , `!`, `~`, `(cast)`
 2.  `*`(dereference), `&`(address of), `sizeof`
 3.  `*`, `/`, `%`, (arithmetic operators)
@@ -91,18 +91,18 @@ in C :
 ### 2.2 Integral data types :
 #### Binary to unsigned encodings :
 
-for bit vector `x = [x_(w-1), x_(w-2), ..., x_0]`  
+For bit vector `x = [x_(w-1), x_(w-2), ..., x_0]`  
 `B2U_w(x) = Σ(i=0->w-1) x_i*2^i`
 Ex: `x = [10101100]` so `B2U_w(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 + 1*128 = 172`
 #### Binary to two's completment encodings :
 
-for bit vector x = [x_(w-1), x_(w-2), ..., x_0]
+For bit vector x = [x_(w-1), x_(w-2), ..., x_0]
 B2U(x) = -x_(w-1)*2^(w-1) Σ(i=0->w-2) x_i*2^i
 Ex1: x = [00101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 0*128 = 44
 Ex2: x = [10101100] so B2T(x) = 0*1 + 0*2 + 1*4 + 1*8 + 0*16 + 1*32 + 0*64 - 1*128 = -84
 #### Conversion between signed and unsigned :
 
-when converting between types of the same size the bit representation stays the same so :
+When converting between types of the same size the bit representation stays the same so :
 ```C
     short int  v = -12345;FLOAT
     unsigned short uv = (unsigned short)v;
@@ -139,8 +139,8 @@ a slowdown in cpu performance progress since the mid 2010s
 ```shell
 gcc -Og -o p p1.c p2.c
 ```
-the `-Og` flag instructs gcc to generate machine code that is similar in structure to the code
-while `-O1` or `-O2` can optimize so heavily that the machine code and original code become quit different
+The `-Og` flag instructs gcc to generate machine code that is similar in structure to the code
+while `-O1` or `-O2` can optimize so heavily that the machine code and original code become quit different.
 gcc executes a series of actions to turn c code into machine code:
 1. the **preprocessor** expands code in `#include` clauses and expands macros
 2. the **compiler** generates assembly versions `p1.s` and `p2.s` of the the source file
@@ -148,8 +148,18 @@ gcc executes a series of actions to turn c code into machine code:
 4. the **linker**  merges the two object files along with code impleplementing library functions
 and generates a final executable `p` which is the machine code that will be executed by the cpu
 
+#### Machine level code
+The **instruction set architecture** or **ISA** defines the processor state, the format of the instructions,
+and the effect each instruction will have on the state. Most ISAs including x86-64 represent programs as
+sequences of instruction. In reality the processor executes many instructructions concurrently and employs
+safeguards to ensure the behaviour matches the code.
 
+The **virtual addresses** provide a memory model which appears to be a large array of bytes while the real
+implementation is more complex.
 
+These abstraction allow programers to program at a low level easier.
+x86-64 shows parts of the programs that are hidden in C :
+-
 ### 3.4
 An x86-64 cpu contains 16 general purpose registers storing 64 bit values 
 
